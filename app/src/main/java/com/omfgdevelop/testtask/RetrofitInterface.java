@@ -1,6 +1,7 @@
 package com.omfgdevelop.testtask;
 
 import com.omfgdevelop.testtask.model.Building;
+import com.omfgdevelop.testtask.model.CabType;
 import com.omfgdevelop.testtask.model.Cabinet;
 
 import java.util.List;
@@ -22,4 +23,6 @@ public interface RetrofitInterface {
     @GET("bit_cabinets_data.json")
     public Call<List<Cabinet>> getCabinets(@Header("Authorization")String auth);
 
+    @GET("/bit_cabinet_category_data.json")
+    Call<List<CabType>> getCabType(@Header("Authorization")String auth);
 }
