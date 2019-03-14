@@ -65,4 +65,5 @@ public class BuildingrecyclerViewAdapter extends RecyclerView.Adapter<Buildingre
             editText = itemView.findViewById(R.id.building_name);
         }
     }
+
 }

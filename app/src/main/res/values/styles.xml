@@ -11,4 +11,9 @@
         <item name="android:textColorHint">@color/colorAccent</item>
         <item name="android:textColor">@color/colorAccent</item>
     </style>
+    <style name="fabTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:colorPrimary">@color/colorAccent</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimary</item>
+        <item name="android:colorAccent">@color/colorDarkGray</item>
+    </style>
 </resources>

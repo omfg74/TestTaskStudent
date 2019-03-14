@@ -4,6 +4,7 @@ import com.omfgdevelop.testtask.RetrofitClient;
 import com.omfgdevelop.testtask.abstraction.BaseRequest;
 import com.omfgdevelop.testtask.model.CabType;
 import com.omfgdevelop.testtask.view.adapters.CabinetAdapter;
+import com.omfgdevelop.testtask.view.fragments.CabinetFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +14,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CabTypeRequest extends BaseRequest {
-    CabinetAdapter cabinetAdapter;
+    CabinetFragment cabinetAdapter;
 
-    public CabTypeRequest(CabinetAdapter cabinetAdapter) {
+    public CabTypeRequest(CabinetFragment cabinetAdapter) {
         this.cabinetAdapter = cabinetAdapter;
     }
 
@@ -24,7 +25,7 @@ public class CabTypeRequest extends BaseRequest {
     @Override
     public void getCredentials() {
         super.getCredentials();
-        this.authHeader = authHeader;
+        this.authHeader = super.authHeader;
     }
 
     public void getcabType() {
@@ -37,7 +38,7 @@ public class CabTypeRequest extends BaseRequest {
                     if (response.code() == 200) {
                         List<CabType> cabTypes = new ArrayList<>();
                         cabTypes = response.body();
-                        cabinetAdapter.callback(cabTypes);
+                        cabinetAdapter.callbackCabType(cabTypes);
                     }
                 } else {
 

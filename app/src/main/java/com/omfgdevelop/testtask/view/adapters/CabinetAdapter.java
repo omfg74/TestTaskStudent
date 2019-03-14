@@ -2,7 +2,9 @@ package com.omfgdevelop.testtask.view.adapters;
 
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,15 +24,16 @@ import org.w3c.dom.Text;
 import java.util.HashMap;
 import java.util.List;
 
-public class CabinetAdapter extends  RecyclerView.Adapter<CabinetAdapter.ViewHolder> implements CabTypeInterface {
+public class CabinetAdapter extends  RecyclerView.Adapter<CabinetAdapter.ViewHolder> {
     private View view;
     private HashMap<Integer,String> map;
     private List<Cabinet> cabinetsByBuilding;
     private List<CabType>cabTypes;
 
-    public CabinetAdapter(List<Cabinet> cabinetsByBuilding) {
+    public CabinetAdapter(List<Cabinet> cabinetsByBuilding, List<CabType>cabTypes) {
         this.cabinetsByBuilding = cabinetsByBuilding;
-        getCabType();
+        this.cabTypes = cabTypes;
+
         Logger.toLog(String.valueOf("ada "+cabinetsByBuilding.size()));
     }
 
@@ -78,29 +81,23 @@ public class CabinetAdapter extends  RecyclerView.Adapter<CabinetAdapter.ViewHol
         return cabinetsByBuilding.size();
     }
 
-    @Override
-    public void callback(List<CabType> cabTypeListr) {
-        this.cabTypes = cabTypeListr;
-    }
-
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView cabinetName;
         TextView floorTextView, count, type;
-        FloatingActionButton floatingActionButton;
+        CoordinatorLayout floatingActionButton;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             floatingActionButton = itemView.findViewById(R.id.fab);
-            cabinetName = itemView.findViewById(R.id.fab);
+            cabinetName = itemView.findViewById(R.id.CabinetName);
             floorTextView = itemView.findViewById(R.id.floorTextView);
             count = itemView.findViewById(R.id.count);
             type = itemView.findViewById(R.id.type);
         }
 
     }
-    private void getCabType(){
-
-        CabTypeRequest cabTypeRequest = new CabTypeRequest(this);
-        cabTypeRequest.getCredentials();
-        cabTypeRequest.getcabType();
-    }
+//    private void getCabType(){
+//        CabTypeRequest cabTypeRequest = new CabTypeRequest(this);
+//        cabTypeRequest.getCredentials();
+//        cabTypeRequest.getcabType();
+//    }
 }

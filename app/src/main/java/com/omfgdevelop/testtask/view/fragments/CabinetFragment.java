@@ -14,8 +14,10 @@ import com.omfgdevelop.testtask.Logger;
 import com.omfgdevelop.testtask.R;
 import com.omfgdevelop.testtask.interfaces.CabinetFragmentInterface;
 import com.omfgdevelop.testtask.model.Building;
+import com.omfgdevelop.testtask.model.CabType;
 import com.omfgdevelop.testtask.model.Cabinet;
 import com.omfgdevelop.testtask.network.BuildingRequest;
+import com.omfgdevelop.testtask.network.CabTypeRequest;
 import com.omfgdevelop.testtask.network.CabinetRequest;
 import com.omfgdevelop.testtask.view.adapters.CabinetAdapter;
 
@@ -27,6 +29,7 @@ public class CabinetFragment extends Fragment implements CabinetFragmentInterfac
     RecyclerView recyclerView;
     Building building;
     CabinetAdapter adapter;
+    List<Cabinet>cabinetsByBuilding;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -71,16 +74,23 @@ public class CabinetFragment extends Fragment implements CabinetFragmentInterfac
     @Override
     public void callback(List<Cabinet> cabinets) {
         Logger.toLog("cba "+String.valueOf(cabinets.size()));
-      List<Cabinet>cabinetsByBuilding = new ArrayList<>();
+       cabinetsByBuilding = new ArrayList<>();
         for (int i = 0; i < cabinets.size(); i++) {
             Logger.toLog("bid "+cabinets.get(i).getBuildingId());
             if(cabinets.get(i).getBuildingId().equalsIgnoreCase(building.getId())){
                 cabinetsByBuilding.add(cabinets.get(i));
             }
         }
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter  = new CabinetAdapter(cabinetsByBuilding);
-        recyclerView.setAdapter(adapter);
+        CabTypeRequest cabTypeRequest = new CabTypeRequest(this);
+        cabTypeRequest.getCredentials();
+        cabTypeRequest.getcabType();
 
+    }
+
+    @Override
+    public void callbackCabType(List<CabType> cabTypes) {
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter  = new CabinetAdapter(cabinetsByBuilding, cabTypes);
+        recyclerView.setAdapter(adapter);
     }
 }
