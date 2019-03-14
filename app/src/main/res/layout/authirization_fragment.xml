@@ -59,7 +59,6 @@
 
 
     <android.support.design.button.MaterialButton
-        style="@style/MaterialTextLabel"
         android:id="@+id/loginButton"
         android:text="@string/Login"
         android:layout_width="wrap_content"

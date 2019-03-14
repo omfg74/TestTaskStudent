@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.omfgdevelop.testtask.R;
 import com.omfgdevelop.testtask.contract.AuthorizationFragmentContract;
+import com.omfgdevelop.testtask.network.BuildingRequest;
 import com.omfgdevelop.testtask.presenter.AuthorizationFragmentPresenter;
 
 public class AuthorizationFragment extends Fragment implements AuthorizationFragmentContract.View {
@@ -70,6 +71,11 @@ public class AuthorizationFragment extends Fragment implements AuthorizationFrag
     @Override
     public void attachBuildingFragment() {
 
+        BuldingFragment buildingFragment  = new BuldingFragment();
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_fragment_place,buildingFragment)
+                .commit();
     }
 
     @Override
