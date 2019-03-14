@@ -44,9 +44,9 @@ public class AuthorizationFragment extends Fragment implements AuthorizationFrag
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         loginEditText = view.findViewById(R.id.loginEditText);
-//        loginEditText.setText("json");//for fast testing only !!!
+        loginEditText.setText("json");//for fast testing only !!!
         passwordEditText = view.findViewById(R.id.passwordEdittext);
-//        passwordEditText.setText("KCKPV8zJDx8TX3SZ");//for fast testing only !!!
+        passwordEditText.setText("KCKPV8zJDx8TX3SZ");//for fast testing only !!!
         loginButton = view.findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override

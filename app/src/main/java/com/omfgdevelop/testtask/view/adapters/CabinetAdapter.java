@@ -48,6 +48,8 @@ public class CabinetAdapter extends  RecyclerView.Adapter<CabinetAdapter.ViewHol
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 //        viewHolder.type.setText(cabinetsByBuilding.get(i).);
         viewHolder.count.setText("Count "+cabinetsByBuilding.get(i).getCount());
+        viewHolder.cabinetName.setText(cabinetsByBuilding.get(i).getName());
+        viewHolder.num.setText(cabinetsByBuilding.get(i).getNum());
         viewHolder.floorTextView.setText("Этаж "+cabinetsByBuilding.get(i).floor);
         for (int j = 0; j <cabTypes.size() ; j++) {
             if(cabinetsByBuilding.get(i).getCetegoryId().equalsIgnoreCase(cabTypes.get(j).getId())){
@@ -83,7 +85,7 @@ public class CabinetAdapter extends  RecyclerView.Adapter<CabinetAdapter.ViewHol
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView cabinetName;
-        TextView floorTextView, count, type;
+        TextView floorTextView, count, type, num;
         CoordinatorLayout floatingActionButton;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -92,6 +94,7 @@ public class CabinetAdapter extends  RecyclerView.Adapter<CabinetAdapter.ViewHol
             floorTextView = itemView.findViewById(R.id.floorTextView);
             count = itemView.findViewById(R.id.count);
             type = itemView.findViewById(R.id.type);
+            num = itemView.findViewById(R.id.num);
         }
 
     }
