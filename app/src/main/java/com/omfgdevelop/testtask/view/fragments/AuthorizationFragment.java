@@ -1,11 +1,11 @@
 package com.omfgdevelop.testtask.view.fragments;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.button.MaterialButton;
-import android.support.design.widget.TextInputEditText;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
+import androidx.fragment.app.Fragment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.omfgdevelop.testtask.R;
 import com.omfgdevelop.testtask.contract.AuthorizationFragmentContract;
-import com.omfgdevelop.testtask.network.BuildingRequest;
 import com.omfgdevelop.testtask.presenter.AuthorizationFragmentPresenter;
 
 public class AuthorizationFragment extends Fragment implements AuthorizationFragmentContract.View {

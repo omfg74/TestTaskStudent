@@ -1,13 +1,11 @@
 package com.omfgdevelop.testtask.view.adapters;
 
-import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.omfgdevelop.testtask.Logger;
 import com.omfgdevelop.testtask.R;
